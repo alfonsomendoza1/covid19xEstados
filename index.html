@@ -1,3 +1,189 @@
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<title>Monitoreo del Contagio de COVID-19 en M&eacute;xico: Numeros B&aacute;sicos de Reproducci&oacute;n en el tiempo</title>
+
+<script src="html_libraries/header-attrs-2.2/header-attrs.js"></script>
+<script src="html_libraries/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="html_libraries/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="html_libraries/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="html_libraries/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="html_libraries/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="html_libraries/navigation-1.1/tabsets.js"></script>
+<link href="html_libraries/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="html_libraries/highlightjs-9.12.0/highlight.js"></script>
+<script src="html_libraries/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="html_libraries/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="html_libraries/typedarray-0.1/typedarray.min.js"></script>
+<link href="html_libraries/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="html_libraries/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="html_libraries/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="html_libraries/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+
+
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <!-- tabsets --><!-- code folding -->
@@ -25,12 +211,14 @@ on generating tabs in rmarkdown automatically
 <div id="htmlwidget-a2a924b14dbb34df8fb9" class="plotly html-widget" style="width: 960px; height: 480px;">&nbsp;</div>
 </div>
 <div id="section-1" class="section level2">
-<h2>&iquest;Qu&eacute; se muestra?&nbsp;</h2>
-<p>Las gr&aacute;ficas muestran los c&aacute;lculos de contagio por Covid-19 para las 32 entidades federativas de M&eacute;xico. En particular se muestra la tasa de contagios diarios (eje vertical secundario) y el N&uacute;mero Reproductivo B&aacute;sico Diario (Rt) en el d&iacute;a t (eje vertical primario).</p>
+<h2>N&uacute;mero Reproductivo B&aacute;sico (Rt)&nbsp;&nbsp;</h2>
+<p>El N&uacute;mero Reproductivo B&aacute;sico (<em>Rt</em>) muestra la velocidad de propagaci&oacute;n de la pandemia por Covid19 Ridenhour et al. (2018), en este estudio de la entidades federativas de M&euml;xico. Identificar la evolucu&oacute;n de este indicador puede apoyar la toma de decisiones y las estrategias de pol&iacute;tica p&uacute;blica en el combate contra esta enfermedad a nivel local.&nbsp;</p>
+<p>Las gr&aacute;ficas muestran los c&aacute;lculos de contagio por Covid-19 para las 32 entidades federativas de M&eacute;xico. En particular se muestran el N&uacute;mero Reproductivo B&aacute;sico Diario (<em>Rt</em>) en el d&iacute;a <em>t</em> (eje vertical primario) y&nbsp;la tasa de contagios diarios (eje vertical secundario).&nbsp;</p>
+<p>Los n&uacute;meros de reproducci&oacute;n pueden ser estimados en distintos momentos durante la pandemia, por lo que son dependientes del tiempo (Obadia et al. 2012).</p>
+<p>Una estimaci&oacute;n adecuada del par&aacute;metro de transmisi&oacute;n Rt puede ser &uacute;til en el c&aacute;lculo de la tasa de ataque (el porcentaje de la poblaci&oacute;n infectada a partir de la poblaci&oacute;n suceptible inicial). Tambi&eacute;n puede emplearse para el c&aacute;lculo de la tasa de crecimiento del n&uacute;mero de contagios diarios.</p>
 <p>&nbsp;</p>
 <h3><strong>Nota metodol&oacute;gica</strong></h3>
 <p>El N&uacute;mero Reproductivo B&aacute;sico (Rt) se calcula por el m&eacute;todo bayesiano de Bettencourt et al. (2008) mediante M&aacute;xima Verosimilitud. Este procedimiento asume que los contagios en el tiempo siguen una distribuci&oacute;n Gamma con dos par&aacute;metros (tama&ntilde;o y forma). La rutina es provista por Boelle y Obadia (2015). El criterio de optimizaci&oacute;n encuentra los estimadores de Rt, tama&ntilde;o y forma que m&aacute;ximizan la funci&oacute;n de verosimilitud. Este procedimiento requiere cuando la incidencia alcanza 150 casos o m&aacute;s.</p>
-<p>&nbsp;</p>
 <p>La fuente de los datos diarios de contagio se obtiene de la Direcci&oacute;n General de Epidemiolog&iacute;a&nbsp; (<a href="https://coronavirus.gob.mx/datos/#DownZCSV">datos abiertos Direcci&oacute;n General de Epidemiolog&iacute;a</a>).&nbsp;</p>
 <div id="notes" class="section level3">
 <h3>Notes</h3>
@@ -80,7 +268,7 @@ on generating tabs in rmarkdown automatically
 <p><a name="ref3"></a>[3]: Read, J.M., Bridgen, J.R.E., Cummings, D.A.T., Ho, A., Jewell, C.P. (2020). <em>Novel coronavirus 2019-nCoV: early estimation of epidemiological parameters and epidemic predictions.</em> MedRxiv, Version 2, 01/28/2020, <a href="https://doi.org/10.1101/2020.01.23.20018549">https://doi.org/10.1101/2020.01.23.20018549</a>.</p>
 <p><a name="ref4"></a>[4]: Hotz, T., Glock, M., Heyder, S., Semper, S., B&ouml;hle, A., Kr&auml;mer, A. (2020). <em>Monitoring the spread of COVID-19 by estimating reproduction numbers over time.</em> <a href="https://arxiv.org/abs/2004.08557">arXiv:2004.08557</a>, 18/04/2020.</p>
 <p>&nbsp;<strong>Bettencourt, L.M.A., and R.M. Ribeiro. "Real Time Bayesian Estimation of the Epidemic Potential<br />of Emerging Infectious Diseases." PLoS One 3, no. 5 (2008): e2185.</strong></p>
-<p>&nbsp;</p>
+<p>&nbsp;Obadia et al. BMC Medical Informatics and Decision Making 2012, 12:147<br />http://www.biomedcentral.com/1472-6947/12/147</p>
 <p><em><a href="impressum.html#imprint">Imprint</a></em></p>
 </div>
 </div>
