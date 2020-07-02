@@ -212,34 +212,26 @@ on generating tabs in rmarkdown automatically
 </div>
 <div id="section-1" class="section level2">
 <h2>N&uacute;mero Reproductivo B&aacute;sico (Rt)&nbsp;&nbsp;</h2>
-<p>El N&uacute;mero Reproductivo B&aacute;sico (<em>Rt</em>) muestra la velocidad de propagaci&oacute;n de la pandemia por Covid19 en las entidades federativas de M&euml;xico (Ridenhour et al., 2018). Identificar la evoluci&oacute;n de este indicador puede apoyar la toma de decisiones y las estrategias de pol&iacute;tica p&uacute;blica local en el combate contra esta enfermedad.&nbsp;</p>
-<p>La pol&iacute;tica de salud deber&iacute;a mantener a Rt&lt;1 para lograr que la poblaci&oacute;n se encuentre fuera del escenario de pandemia. El umbral de epidemia se alcanza cuando m&aacute;s de una persona se infecta por cada infectado, es decir cuand Rt&gt;1.</p>
-<p>Las gr&aacute;ficas muestran los c&aacute;lculos de contagio por Covid-19 para las 32 entidades federativas de M&eacute;xico. En particular se muestran el N&uacute;mero Reproductivo B&aacute;sico Diario (<em>Rt</em>) en el d&iacute;a <em>t</em> (eje vertical primario) y&nbsp;la tasa de contagios diarios (eje vertical secundario).&nbsp;</p>
+<p>El N&uacute;mero Reproductivo B&aacute;sico (<em>Rt</em>) muestra la velocidad de propagaci&oacute;n de la pandemia por Covid19 en las entidades federativas de M&euml;xico (Ridenhour et al., 2018). Identificar la evoluci&oacute;n de este indicador puede apoyar la toma de decisiones y las estrategias de pol&iacute;tica p&uacute;blica local en el combate contra esta enfermedad.</p>
+<p><em>Rt</em>&nbsp; mide el numero de personas promedio que una persona infectada podr&iacute;a infectar en el tiempo <em>t</em>&nbsp;si se mantuvieran las mismas condiciones (Hotz, et al. 2020).&nbsp;</p>
+<p>La pol&iacute;tica de salud deber&iacute;a mantener a Rt&lt;1 para lograr que la poblaci&oacute;n se encuentre fuera de la pandemia. El umbral de epidemia se alcanza cuando m&aacute;s de una persona se infecta por cada infectado, es decir cuand Rt&gt;1.</p>
+<p>Las gr&aacute;ficas muestran los c&aacute;lculos de contagio por Covid-19 para las 32 entidades federativas de M&eacute;xico. En particular se muestran el N&uacute;mero Reproductivo B&aacute;sico Diario (<em>Rt</em>) en el d&iacute;a <em>t</em> (eje vertical primario) y&nbsp;la tasa de contagios diarios (eje vertical secundario). La l&iacute;nea roja en la gr&aacute;fica representa el umbral de contagio Rt=1. Arriba de este umbral se registra a&uacute;n crecimiento exponencial de contagios y por abajo de este umbral el numero de contagios disminuye.</p>
 <p>Los n&uacute;meros de reproducci&oacute;n pueden ser estimados en distintos momentos durante la pandemia, por lo que son dependientes del tiempo (Obadia et al. 2012).</p>
-<p>Una estimaci&oacute;n adecuada del par&aacute;metro de transmisi&oacute;n Rt puede ser &uacute;til en el c&aacute;lculo de la tasa de ataque (el porcentaje de la poblaci&oacute;n infectada a partir de la poblaci&oacute;n suceptible inicial). Tambi&eacute;n puede emplearse para el c&aacute;lculo de la tasa de crecimiento del n&uacute;mero de contagios<h3><strong>Nota metodol&oacute;gica</strong></h3>
+<p>Una estimaci&oacute;n adecuada del par&aacute;metro de transmisi&oacute;n Rt puede ser &uacute;til en el c&aacute;lculo de la tasa de ataque (el porcentaje de la poblaci&oacute;n infectada a partir de la poblaci&oacute;n suceptible inicial). Tambi&eacute;n puede emplearse para el c&aacute;lculo de la tasa de crecimiento del n&uacute;mero de contagios diarios.</p>
+<p>&nbsp;</p>
+<h3><strong>Nota metodol&oacute;gica</strong></h3>
 <p>El N&uacute;mero Reproductivo B&aacute;sico (Rt) se calcula por el m&eacute;todo bayesiano de Bettencourt et al. (2008) mediante M&aacute;xima Verosimilitud. Este procedimiento asume que los contagios en el tiempo siguen una distribuci&oacute;n Gamma con dos par&aacute;metros (tama&ntilde;o y forma). La rutina es provista por Boelle y Obadia (2015). El criterio de optimizaci&oacute;n encuentra los estimadores de Rt, tama&ntilde;o y forma que m&aacute;ximizan la funci&oacute;n de verosimilitud. Este procedimiento requiere cuando la incidencia alcanza 150 casos o m&aacute;s.</p>
 <p>La fuente de los datos diarios de contagio se obtiene de la Direcci&oacute;n General de Epidemiolog&iacute;a&nbsp; (<a href="https://coronavirus.gob.mx/datos/#DownZCSV">datos abiertos Direcci&oacute;n General de Epidemiolog&iacute;a</a>).&nbsp;</p>
 <div id="notes" class="section level3">
 <h3>Notes</h3>
+<p>El posible subreporte de los casos de contagio no afecta las estimaciones ya que el numero de infectados y las personas con infecci&oacute;n se surepresentarian en la misma proporci&oacute;n.&nbsp;</p>
+<p>Los intervalos de confianza al 95% utilizan el m&eacute;todo deltay reflejan las incertidumbres debidas a la din&aacute;mica aleatoria de la epidemia. A&uacute;n asi, es importante tomar con cuidado estos c&aacute;lculos debido a las distintas fuentes de error.&nbsp;</p>
+<p>&nbsp;</p>
 <ul>
-<li>
-<p>We estimate the (effective) <strong>reproduction number</strong> <em>R(t)</em> at day <em>t</em>, i.e. the average number of people someone infected at time <em>t</em> would infect if conditions remained the same.</p>
-</li>
-<li>
-<p>The <strong>estimator</strong> has been taken from <a href="#ref1">(Fraser 2007)</a>. It compares the number of infections at a time point with the number of infectious cases at that time, weighted by their respective infectivity. Note that constant (per country) <strong>underreporting</strong> does not affect the estimates since both the number of infections and the number of infectious persons are reduced by the same proportionality factor.</p>
-</li>
-<li>
-<p>For this estimator, we derived (approximate, pointwise) <strong>95% confidence intervals</strong> using the delta method.</p>
-</li>
-<li>
-<p>However, the size of the confidence intervals reflects only those statistical uncertainties due to the random dynamics of the epidemic. But since the estimator is based on assumptions about the infectivity of the virus, and given that the data are not perfect because of a change of reporting criteria, varying amounts of testing etc., <strong>the estimates should be interpreted cautiously</strong> and not be taken at face value (especially when case counts are low). Still, we believe that one can draw qualitatively credible conclusions from them.</p>
-</li>
-<li>
-<p>Estimates are shown in black, confidence intervals as grey stripes, with values specified by the <strong>left axis</strong> (on a <strong>log-scale</strong>; thus 0 is always out of sight, at the infinite lower end of the axis). If estimates cannot sensibly be determined due to insufficient data, values are interpolated by dashed lines without confidence intervals.</p>
-</li>
-<li>
-<p>The <strong>critical value</strong> for the reproduction number is 1, shown as a red horizontal line: a value larger than one would result in an exponential increase of infections, a value smaller than one in a decrease.</p>
-</li>
+<li></li>
+
+
+
 <li>
 <p>The analysis is based on <strong>newly reported cases</strong> of Coronavirus Disease 2019 (COVID-19) per day, shown as blue bars as specified by the <strong>right axis</strong> (on a linear scale). For these we rely on the <a href="https://github.com/CSSEGISandData/COVID-19">data provided by Johns Hopkins University</a>.</p>
 </li>
